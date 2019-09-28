@@ -65,4 +65,4 @@ for (let consoleMethod of consoleMethods) {
   universalConsole[consoleMethod] = createConsoleMethod(consoleMethod);
 }
 
-module.exports = universalConsole;
+export default universalConsole;
