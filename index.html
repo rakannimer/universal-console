@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      body {
+        font: 13px Helvetica, Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="open-console-explainer">
+      <h1>Open the developer console to see your logs</h1>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on("universal-console", action => {
+        const { type, payload } = action;
+        console[type](...payload);
+      });
+      // socket.emit("universal-console", {
+      //   type: "log",
+      //   payload: ["Hello ", "world"]
+      // });
+    </script>
+  </body>
+</html>

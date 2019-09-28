@@ -1,0 +1,36 @@
+{
+  "name": "universal-console",
+  "version": "0.1.1",
+  "source": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "microbundle --name UniversalConsole",
+    "dev": "microbundle watch",
+    "postinstall": "node cli.js > /dev/null 2>&1 &",
+    "prepare": "npm run build"
+  },
+  "husky": {
+    "pre-commit": "prettier src/* --write",
+    "pre-push": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rakannimer/universal-console"
+  },
+  "license": "MIT",
+  "description": "Use your browser's console from NodeJS, React Native or Electron",
+  "dependencies": {
+    "express": "^4.17.1",
+    "kill-port": "^1.5.2",
+    "ky": "^0.14.0",
+    "ky-universal": "^0.3.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
+  },
+  "devDependencies": {
+    "microbundle": "^0.12.0-next.6"
+  }
+}
